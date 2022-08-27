@@ -1,3 +1,2 @@
-# 2001ME16_2022
-hello world
-hello python
+# CS384_2022
+Tuts Assignments
