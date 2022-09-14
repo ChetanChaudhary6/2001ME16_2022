@@ -68,3 +68,14 @@ for ele in data['V']:
                 data.at[row_no,'Octant']=-3
                 count_n3=count_n3+1
     row_no=row_no+1
+
+    # count of all octant
+data.at[0,'Octant ID']='Overall Count'
+data.at[0,'1']=count_p1
+data.at[0,'-1']=count_n1
+data.at[0,'2']=count_p2
+data.at[0,'-2']=count_n2
+data.at[0,'3']=count_p3
+data.at[0,'-3']=count_n3
+data.at[0,'4']=count_p4
+data.at[0,'-4']=count_n4
