@@ -80,7 +80,7 @@ data.at[0,'-3']=count_n3
 data.at[0,'4']=count_p4
 data.at[0,'-4']=count_n4
 
- now for different mod range values
+ #now for different mod range values
 count_p1=0
 count_n1=0
 count_p2=0
