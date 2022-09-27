@@ -198,3 +198,35 @@ for x in list:
         ro=str(int(x[j]))
         co=str(int(x[j+1]))
         df.loc[ro,co]+=1
+    i=i+3  
+    data.at[i,'Octant ID']="Mod Transition Count"
+    data.at[i+2,'Octant ID']="Count"
+    data.at[i+1,'Octant ID']=str(st+1)+"-"+str(st+mod)
+    st=st+mod
+    i=i+2
+    data.at[i,'1']='1'
+    data.at[i,'-1']='-1'
+    data.at[i,'2']='2'
+    data.at[i,'-2']='-2'
+    data.at[i,'3']='3'
+    data.at[i,'-3']='-3'
+    data.at[i,'4']='4'
+    data.at[i,'-4']='-4'
+    data.at[i+1,'Octant ID']='1'
+    data.at[i+2,'Octant ID']='-1'
+    data.at[i+3,'Octant ID']='2'
+    data.at[i+4,'Octant ID']='-2'
+    data.at[i+5,'Octant ID']='3'
+    data.at[i+6,'Octant ID']='-3'
+    data.at[i+7,'Octant ID']='4'
+    data.at[i+8,'Octant ID']='-4'
+    i=i+1
+    col_index=13
+
+
+    for k in range(0,8):
+        for l in range(0,8):
+            data.iloc[i+k,col_index+l]=df.iloc[k,l]
+    i=i+16
+        
+data.to_excel('out.xlsx',index=False)
