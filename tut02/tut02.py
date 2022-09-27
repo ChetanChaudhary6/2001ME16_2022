@@ -147,3 +147,37 @@ for i in range(length):
             count_p4=0
             count_n4=0
             j+=1
+
+
+# for transition count make another dataframe
+writer=pd.ExcelWriter('out.xlsx',engine="openpyxl")
+df=pd.DataFrame(columns=['1','-1','2','-2','3','-3','4','-4'],index=['1','-1','2','-2','3','-3','4','-4'])
+df=df.fillna(0)
+# simply count them using hashing
+for j in range(0,29745-1):
+    ro=str(int(Octant[j]))
+    co=str(int(Octant[j+1]))
+    df.loc[ro,co]+=1
+i=12 
+#write the value at the specify index
+data.at[i,'Octant ID']="Overall Transition Count"
+data.at[i+2,'Octant ID']="Count"
+i=i+2
+data.at[i,'1']='1'
+data.at[i,'-1']='-1'
+data.at[i,'2']='2'
+data.at[i,'-2']='-2'
+data.at[i,'3']='3'
+data.at[i,'-3']='-3'
+data.at[i,'4']='4'
+data.at[i,'-4']='-4'
+data.at[i+1,'Octant ID']='1'
+data.at[i+2,'Octant ID']='-1'
+data.at[i+3,'Octant ID']='2'
+data.at[i+4,'Octant ID']='-2'
+data.at[i+5,'Octant ID']='3'
+data.at[i+6,'Octant ID']='-3'
+data.at[i+7,'Octant ID']='4'
+data.at[i+8,'Octant ID']='-4'
+i=i+1
+col_index=13
