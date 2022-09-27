@@ -181,3 +181,20 @@ data.at[i+7,'Octant ID']='4'
 data.at[i+8,'Octant ID']='-4'
 i=i+1
 col_index=13
+# update the initial dataframe by the new entries of transition count dataframe
+for k in range(0,8):
+    for l in range(0,8):
+        data.iloc[i+k,col_index+l]=df.iloc[k,l]
+i=i+16
+st=0
+
+
+# do transition count for different mod ranges values
+list = [Octant[i * mod:(i + 1) * mod] for i in range((len(Octant) + mod - 1) // mod )] 
+for x in list:
+    df=pd.DataFrame(columns=['1','-1','2','-2','3','-3','4','-4'],index=['1','-1','2','-2','3','-3','4','-4'])
+    df=df.fillna(0)
+    for j in range(0,len(x)-1):
+        ro=str(int(x[j]))
+        co=str(int(x[j+1]))
+        df.loc[ro,co]+=1
