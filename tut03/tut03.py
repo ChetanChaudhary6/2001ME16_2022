@@ -93,3 +93,18 @@ dict['-4']=fun('-4')
 dict['+2']=fun('+2')
 dict['+3']=fun('+3')
 dict['+4']=fun('+4')
+
+cnt={'-4':1,'-3':1,'-2':1,'-1':1,'+1':1,'+2':1,'+3':1,'+4':1}
+
+#using string count the number of longest continuous subarray
+cnt['-4']=string.count('-4'*dict['-4'])
+cnt['-3']=string.count('-3'*dict['-3'])
+cnt['-2']=string.count('-2'*dict['-2'])
+cnt['-1']=string.count('-1'*dict['-1'])
+cnt['+1']=string.count('+1'*dict['+1'])
+cnt['+2']=string.count('+2'*dict['+2'])
+cnt['+3']=string.count('+3'*dict['+3'])
+cnt['+4']=string.count('+4'*dict['+4'])
+j=-4
+i=0
+k=""
