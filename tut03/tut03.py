@@ -72,3 +72,24 @@ for ele in data['V']:
     row_no=row_no+1
 Octant=data['Octant'].tolist()
 length=row_no
+dict={'-4':0,'-3':0,'-2':0,'-1':0,'+1':0,'+2':0,'+3':0,'+4':0}
+#function for longest continuous subarray
+def fun(n):
+    c=0
+    mx=0
+    for i in range(length):
+        x=data.at[i,'Octant']
+        if(x==n):
+            c+=1
+        else:
+            mx=max(mx,c)
+            c=0
+    return mx
+dict['-1']=fun('-1')
+dict['+1']=fun('+1')
+dict['-2']=fun('-2')
+dict['-3']=fun('-3')
+dict['-4']=fun('-4')
+dict['+2']=fun('+2')
+dict['+3']=fun('+3')
+dict['+4']=fun('+4')
