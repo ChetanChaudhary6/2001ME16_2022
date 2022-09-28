@@ -29,3 +29,46 @@ count_n3=0
 count_p4=0
 count_n4=0
 string=""
+# making average columns 
+for ele in data['V']:
+    x=data.at[row_no,"U'=U-Uavg"]=data.at[row_no,'U']-u_avg
+    y=data.at[row_no,"U'=U-Vavg"]=data.at[row_no,'V']-v_avg
+    z=data.at[row_no,"U'=U-Wavg"]=data.at[row_no,'W']-w_avg
+    # check valid octant
+    try:
+        if x>0:
+            if y>0:
+                if z>0:
+                    data.at[row_no,'Octant']='+1'
+                    count_p1=count_p1+1
+                else:
+                    data.at[row_no,'Octant']="-1"
+                    count_n1=count_n1+1
+            else:
+                if z>0:
+                    data.at[row_no,'Octant']='+4'
+                    count_p4=count_p4+1
+                else:
+                    data.at[row_no,'Octant']='-4'
+                    count_n4=count_n4+1
+        else:
+            if y>0:
+                if z>0:
+                    data.at[row_no,'Octant']='+2'
+                    count_p2=count_p2+1
+                else:
+                    data.at[row_no,'Octant']='-2'
+                    count_n2=count_n2+1
+            else:
+                if z>0:
+                    data.at[row_no,'Octant']='+3'
+                    count_p3=count_p3+1
+                else:
+                    data.at[row_no,'Octant']='-3'
+                    count_n3=count_n3+1
+    except:
+        print("Octant can't be created")
+    string+=data.at[row_no,'Octant']
+    row_no=row_no+1
+Octant=data['Octant'].tolist()
+length=row_no
