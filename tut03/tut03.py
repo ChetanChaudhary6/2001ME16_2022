@@ -108,3 +108,16 @@ cnt['+4']=string.count('+4'*dict['+4'])
 j=-4
 i=0
 k=""
+#write the count and length in dataframe
+while i<8:
+    if(j>0):k='+'+str(j)
+    else:k=str(j)
+    if(j==0):
+        j+=1
+        continue
+    data.at[i,"Value"]=k
+    data.at[i,"Longest Subsequence Length"]=dict[k]
+    data.at[i,"Count"]=cnt[k]
+    i+=1
+    j+=1
+data.to_excel('out.xlsx',index=False)
