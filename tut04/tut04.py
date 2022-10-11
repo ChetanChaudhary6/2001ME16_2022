@@ -118,3 +118,15 @@ while i<8:
     data.at[i,"Count"]=len(dict[k])-1
     i+=1
     j+=1
+
+# writing the time range
+l=0
+for j in dict.keys():
+    data.at[l,"Values"]=j
+    l+=1
+    for a in range(1,len(dict[j])):
+        data.at[l,"From"]=dict[j][a][0]
+        data.at[l,"To"]=dict[j][a][1]
+        l+=1
+
+data.to_excel('out.xlsx',index=False)
