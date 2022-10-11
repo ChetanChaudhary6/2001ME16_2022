@@ -102,3 +102,19 @@ fun('-4')
 fun('+2')
 fun('+3')
 fun('+4')
+
+j=-4
+i=0
+k=""
+#write the count and length in dataframe
+while i<8:
+    if(j>0):k='+'+str(j)
+    else:k=str(j)
+    if(j==0):
+        j+=1
+        continue
+    data.at[i,"Value"]=k
+    data.at[i,"Longest Subsequence Length"]=dict[k][0][0]
+    data.at[i,"Count"]=len(dict[k])-1
+    i+=1
+    j+=1
