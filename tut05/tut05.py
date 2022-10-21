@@ -2,7 +2,7 @@
 # import pandas as pd and csv module
 import pandas as pd
 # read the input file
-reader=pd.read_excel('input_octant_transition_identify.xlsx',"Sheet1")
+reader=pd.read_excel('octant_input.xlsx',"Sheet1")
 # write in output file
 writer=pd.ExcelWriter('out.xlsx',engine="openpyxl")
 reader.to_excel('out.xlsx')
