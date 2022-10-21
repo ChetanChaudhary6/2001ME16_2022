@@ -170,3 +170,13 @@ for i in range(1,7):
     for j in range(8):
         str="Rank of {} Octant".format(grid[i-1][j][0])
         data.at[i,str]=j+1
+
+# write the calculated count of rank 1 in different octant
+i=0
+for v,s in dictname.items():
+    data.at[i,"ID"]=v
+    data.at[i,"ID Name"]=s
+    data.at[i,"Count of Rank 1"]=dictrank1[v]
+    i+=1
+
+data.to_excel('out.xlsx',index=False)
