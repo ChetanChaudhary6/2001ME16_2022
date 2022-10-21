@@ -156,3 +156,17 @@ for i in range(length):
             count_p4=0
             count_n4=0
             j+=1
+
+dictrank1={1:0,2:0,3:0,4:0,-1:0,-2:0,-3:0,-4:0}
+dictname={-2:"Internal Ejection",2:"External Ejection",1:"Internal outward Interaction",-1:"External Outward Interaction",-3:"Internal Inward Interaction",3:"External Inward Interaction",4:"Internal sweep",-4:"External sweep"}
+
+data.at[0,"Rank 1 ID"]=overalllist[0][0]
+data.at[0,"Rank Name"]=dictname[overalllist[0][0]]
+# write the calculated rank value of different octant with rank 1 octant and its name
+for i in range(1,7):
+    dictrank1[grid[i-1][0][0]]+=1
+    data.at[i,"Rank 1 ID"]=grid[i-1][0][0]
+    data.at[i,"Rank Name"]=dictname[grid[i-1][0][0]]
+    for j in range(8):
+        str="Rank of {} Octant".format(grid[i-1][j][0])
+        data.at[i,str]=j+1
