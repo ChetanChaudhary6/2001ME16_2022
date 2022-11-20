@@ -222,7 +222,7 @@ else:
 
 attendance_report()
 # Send email code
-to="c" # Receiver's address
+to="" # Receiver's address
 main_mail(to)
 
 
